@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Clicker - INTRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ИНТРО -->
+    <div id="intro">
+        <div class="intro-content">
+            <h1 class="intro-title">Super Clicker</h1>
+            <p class="intro-subtitle">The Ultimate Clicking Experience</p>
+            <div class="intro-features">
+                <div class="feature">🖱️ Click & Earn</div>
+                <div class="feature">🏪 45+ Items</div>
+                <div class="feature">🐾 Pets & Buildings</div>
+                <div class="feature">⚡ Events & Mining</div>
+                <div class="feature">🎵 Music & Sounds</div>
+                <div class="feature">💎 Gems & Crystals</div>
+            </div>
+            <button class="start-btn" id="start-btn">
+                <span>START GAME</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+        <div class="intro-bg"></div>
+    </div>
+    <!-- ИГРА -->
+    <div id="game-container" style="display: none;">
+        <header id="game-header">
+            <h1>Super Clicker <span class="badge">FULL</span></h1>
+            <div id="resource-bar">
+                <span id="money-display">50</span>
+                <span id="gems-display">0</span>
+                <span id="crystal-display">0</span>
+                <span id="egg-display">0</span>
+                <span id="xp-display">0 XP</span>
+                <span id="level-display">1</span>
+            </div>
+            <div id="active-events-bar"></div>
+        </header>
+        <nav id="main-menu">
+            <button class="menu-btn active" data-tab="clicker">Clicker</button>
+            <button class="menu-btn" data-tab="shop">Shop</button>
+            <button class="menu-btn" data-tab="pets">Pets</button>
+            <button class="menu-btn" data-tab="buildings">Buildings</button>
+            <button class="menu-btn" data-tab="events">Events</button>
+            <button class="menu-btn" data-tab="mining">Mining</button>
+            <button class="menu-btn" data-tab="stats">Stats</button>
+            <button class="menu-btn" data-tab="admin">Admin</button>
+            <button class="menu-btn" data-tab="settings">Settings</button>
+        </nav>
+        <section id="clicker-tab" class="tab-content active">
+            <div id="click-area">
+                <div id="main-button" class="click-button">
+                    <span class="button-text">CLICK!</span>
+                </div>
+                <div id="click-power-display">
+                    <p>Click Power: <span id="click-power">1</span></p>
+                    <p>Auto Income: <span id="auto-income">0</span>/sec</p>
+                    <p>Multiplier: <span id="multiplier">x1.00</span></p>
+                </div>
+            </div>
+            <div id="combo-display">
+                <span id="combo-counter">Combo: 0</span>
+                <span id="combo-multiplier">x1.00</span>
+            </div>
+        </section>
+        <section id="shop-tab" class="tab-content">
+            <h2>Shop</h2>
+            <div id="shop-categories">
+                <button class="shop-category active" data-category="clickers">Clickers (10)</button>
+                <button class="shop-category" data-category="auto">Auto (10)</button>
+                <button class="shop-category" data-category="boosters">Boosters (10)</button>
+                <button class="shop-category" data-category="premium">Premium (10)</button>
+                <button class="shop-category" data-category="eggs">Eggs (5)</button>
+            </div>
+            <div id="shop-items"></div>
+        </section>
+        <section id="pets-tab" class="tab-content">
+            <h2>Pets</h2>
+            <div id="pets-info">
+                <p>Owned: <span id="pets-owned">0</span></p>
+                <p>Equipped: <span id="pets-equipped">None</span></p>
+            </div>
+            <div id="pets-list"></div>
+        </section>
+        <section id="buildings-tab" class="tab-content">
+            <h2>Buildings</h2>
+            <div id="buildings-info">
+                <p>Owned: <span id="buildings-owned">0</span></p>
+                <p>Equipped: <span id="buildings-equipped">None</span></p>
+            </div>
+            <div id="buildings-list"></div>
+        </section>
+        <section id="events-tab" class="tab-content">
+            <h2>Active Events</h2>
+            <div id="current-events"></div>
+        </section>
+        <section id="mining-tab" class="tab-content">
+            <h2>Mining</h2>
+            <div id="mining-info">
+                <div class="mining-panel">
+                    <h3>Gems Mining</h3>
+                    <p>Progress: <span id="mining-progress">0</span> / 100000</p>
+                    <div class="progress-bar"><div id="mining-progress-fill"></div></div>
+                </div>
+                <div class="mining-panel">
+                    <h3>Crystals Mining</h3>
+                    <p>Progress: <span id="crystal-mining-progress">0</span> / 1000000</p>
+                    <div class="progress-bar"><div id="crystal-mining-progress-fill"></div></div>
+                </div>
+            </div>
+        </section>
+        <section id="admin-tab" class="tab-content">
+            <h2>Admin Panel</h2>
+            <div id="admin-panel">
+                <div class="admin-section">
+                    <h3>Give Currency</h3>
+                    <input type="number" id="admin-money" placeholder="Money">
+                    <input type="number" id="admin-gems" placeholder="Gems">
+                    <input type="number" id="admin-crystals" placeholder="Crystals">
+                    <input type="number" id="admin-eggs" placeholder="Eggs">
+                    <button class="admin-btn" id="admin-give-btn">Give</button>
+                </div>
+                <div class="admin-section">
+                    <h3>Events</h3>
+                    <button class="admin-btn" id="admin-trigger-btn">Trigger</button>
+                    <button class="admin-btn" id="admin-clear-btn">Clear</button>
+                </div>
+                <div class="admin-section">
+                    <h3>Music</h3>
+                    <button class="admin-btn" data-music="ambient">Ambient</button>
+                    <button class="admin-btn" data-music="epic">Epic</button>
+                    <button class="admin-btn" data-music="action">Action</button>
+                    <button class="admin-btn" data-music="chill">Chill</button>
+                    <button class="admin-btn" id="admin-stop-music">Stop</button>
+                </div>
+            </div>
+        </section>
+        <section id="stats-tab" class="tab-content">
+            <h2>Stats</h2>
+            <div id="stats-container">
+                <div class="stat-item"><span class="stat-label">Clicks:</span><span id="stat-total-clicks" class="stat-value">0</span></div>
+                <div class="stat-item"><span class="stat-label">Earned:</span><span id="stat-total-earned" class="stat-value">0</span></div>
+                <div class="stat-item"><span class="stat-label">Time:</span><span id="stat-play-time" class="stat-value">00:00:00</span></div>
+                <div class="stat-item"><span class="stat-label">Level:</span><span id="stat-max-level" class="stat-value">1</span></div>
+                <div class="stat-item"><span class="stat-label">Pets:</span><span id="stat-pets" class="stat-value">0</span></div>
+                <div class="stat-item"><span class="stat-label">Buildings:</span><span id="stat-buildings" class="stat-value">0</span></div>
+            </div>
+        </section>
+        <section id="settings-tab" class="tab-content">
+            <h2>Settings</h2>
+            <div id="settings-panel">
+                <div class="setting-group">
+                    <h3>Visual</h3>
+                    <label><input type="checkbox" id="setting-animations" checked> Animations</label>
+                    <label><input type="checkbox" id="setting-particles" checked> Particles</label>
+                    <label><input type="checkbox" id="setting-dark-mode"> Dark Mode</label>
+                </div>
+                <div class="setting-group">
+                    <h3>Sound</h3>
+                    <label><input type="checkbox" id="setting-sound" checked> Sound</label>
+                    <label><input type="checkbox" id="setting-music" checked> Music</label>
+                    <label>Volume: <input type="range" id="setting-volume" min="0" max="100" value="50"> <span id="volume-value">50</span>%</label>
+                </div>
+                <div class="setting-group">
+                    <h3>Save</h3>
+                    <button id="save-game-btn" class="setting-btn">Save</button>
+                    <button id="reset-game-btn" class="setting-btn danger">Reset</button>
+                </div>
+            </div>
+        </section>
+        <div id="toast-container"></div>
+        <div id="particles-container"></div>
+        <footer id="game-footer"><p>Super Clicker v16.0 INTRO | Enjoy the game!</p></footer>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

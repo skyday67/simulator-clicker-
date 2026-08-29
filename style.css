@@ -1,0 +1,234 @@
+/* === ИНТРО === */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.intro-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: bgPulse 3s infinite;
+}
+
+@keyframes bgPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.intro-content {
+    text-align: center;
+    z-index: 1;
+    animation: contentSlide 1s ease-out;
+}
+
+@keyframes contentSlide {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.intro-title {
+    font-size: 4em;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    animation: titleGlow 2s infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    50% { text-shadow: 0 0 40px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.6); }
+}
+
+.intro-subtitle {
+    font-size: 1.5em;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    animation: subtitleFade 1.5s ease-out;
+}
+
+@keyframes subtitleFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.intro-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    animation: featurePop 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.feature:nth-child(1) { animation-delay: 0.2s; }
+.feature:nth-child(2) { animation-delay: 0.4s; }
+.feature:nth-child(3) { animation-delay: 0.6s; }
+.feature:nth-child(4) { animation-delay: 0.8s; }
+.feature:nth-child(5) { animation-delay: 1.0s; }
+.feature:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes featurePop {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.start-btn {
+    position: relative;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    border: none;
+    padding: 20px 60px;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+    animation: btnPulse 2s infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(67, 233, 123, 0.5); }
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 50px rgba(67, 233, 123, 0.6);
+}
+
+.btn-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    animation: glowMove 3s infinite;
+}
+
+@keyframes glowMove {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* === ОСТАЛЬНОЙ CSS === */
+* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; overflow-x: hidden; }
+#game-container { max-width: 1400px; margin: 0 auto; padding: 12px; }
+#game-header { background: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 15px; margin-bottom: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); text-align: center; animation: headerGlow 3s infinite; }
+@keyframes headerGlow { 0%, 100% { box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3); } 50% { box-shadow: 0 8px 50px rgba(102, 126, 234, 0.6); } }
+#game-header h1 { color: #667eea; font-size: 1.5em; margin-bottom: 12px; }
+.badge { background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.6em; animation: badgePulse 2s infinite; }
+@keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+#resource-bar { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+#resource-bar span { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 12px; border-radius: 25px; font-weight: bold; font-size: 0.8em; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); animation: resourceFloat 3s infinite; }
+@keyframes resourceFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+#active-events-bar { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.event-active-badge { padding: 4px 10px; border-radius: 15px; font-size: 0.75em; font-weight: bold; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; animation: badgePulse 1s infinite; }
+#main-menu { display: flex; justify-content: center; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; }
+.menu-btn { background: rgba(255, 255, 255, 0.9); border: none; padding: 8px 12px; border-radius: 10px; font-size: 0.75em; cursor: pointer; animation: menuSlide 0.5s; }
+@keyframes menuSlide { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+.menu-btn:hover, .menu-btn.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; transform: translateY(-3px) scale(1.05); }
+.tab-content { display: none; background: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); animation: tabFadeIn 0.3s; }
+@keyframes tabFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.tab-content.active { display: block; }
+#click-area { text-align: center; padding: 20px 10px; }
+.click-button { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); border: 8px solid white; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); cursor: pointer; margin: 0 auto 15px; }
+.click-button:hover { animation: buttonGlow 0.5s; }
+@keyframes buttonGlow { 0%, 100% { box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); } 50% { box-shadow: 0 10px 60px rgba(102, 126, 234, 0.8); } }
+.click-button:active { transform: scale(0.95); }
+.click-button.clicked { animation: clickBounce 0.3s; }
+@keyframes clickBounce { 0% { transform: scale(1); } 50% { transform: scale(0.9); } 100% { transform: scale(1); } }
+.click-button .button-text { display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-size: 1.4em; font-weight: bold; pointer-events: none; }
+#click-power-display { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px; border-radius: 15px; margin-top: 12px; animation: panelSlide 0.5s; }
+@keyframes panelSlide { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+#click-power-display p { font-size: 0.9em; margin: 5px 0; }
+#combo-display { text-align: center; margin-top: 12px; padding: 8px; background: rgba(255, 215, 0, 0.2); border-radius: 10px; animation: comboGlow 2s infinite; }
+@keyframes comboGlow { 0%, 100% { background: rgba(255, 215, 0, 0.2); } 50% { background: rgba(255, 215, 0, 0.4); } }
+#combo-counter, #combo-multiplier { font-size: 1.1em; font-weight: bold; margin: 0 8px; color: #667eea; }
+#shop-categories { display: flex; justify-content: center; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; }
+.shop-category { background: rgba(255, 255, 255, 0.9); border: 2px solid #667eea; padding: 5px 10px; border-radius: 10px; cursor: pointer; font-size: 0.7em; transition: all 0.3s; }
+.shop-category.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; animation: categoryPop 0.3s; }
+@keyframes categoryPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+#shop-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin-top: 12px; }
+.shop-item { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); border-radius: 10px; padding: 8px; cursor: pointer; transition: all 0.3s; }
+.shop-item:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); animation: itemShine 0.5s; }
+@keyframes itemShine { 0% { filter: brightness(1); } 50% { filter: brightness(1.2); } 100% { filter: brightness(1); } }
+.shop-item h4 { color: #667eea; margin-bottom: 5px; font-size: 0.9em; }
+.shop-item p { color: #333; margin-bottom: 5px; font-size: 0.8em; }
+.shop-item .price { color: #764ba2; font-weight: bold; font-size: 0.9em; }
+#pets-list, #buildings-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; }
+.pet-card, .building-card { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); border-radius: 15px; padding: 12px; animation: cardSlide 0.5s; }
+@keyframes cardSlide { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+.pet-card.equipped, .building-card.equipped { background: linear-gradient(135deg, #43e97b, #38f9d7); animation: equippedGlow 2s infinite; }
+@keyframes equippedGlow { 0%, 100% { box-shadow: 0 5px 20px rgba(67, 233, 123, 0.3); } 50% { box-shadow: 0 5px 30px rgba(67, 233, 123, 0.6); } }
+.pet-card h4, .building-card h4 { color: #667eea; margin-bottom: 8px; }
+.pet-card p, .building-card p { color: #333; margin: 5px 0; font-size: 0.85em; }
+.equip-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 8px 12px; border-radius: 8px; margin: 5px 0; cursor: pointer; width: 100%; }
+.equip-btn:hover { animation: buttonHover 0.3s; }
+@keyframes buttonHover { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+#current-events { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-top: 12px; }
+.event-card { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px; border-radius: 15px; animation: eventSlide 0.5s; }
+@keyframes eventSlide { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+.event-card h4 { margin-bottom: 8px; font-size: 1.1em; }
+#mining-info { text-align: center; padding: 20px; }
+.mining-panel { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 20px; border-radius: 15px; margin-bottom: 15px; animation: miningPulse 2s infinite; }
+@keyframes miningPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+.mining-panel h3 { color: #667eea; margin-bottom: 10px; }
+.mining-panel p { color: #333; margin: 5px 0; }
+.progress-bar { background: rgba(0, 0, 0, 0.1); border-radius: 10px; height: 20px; overflow: hidden; margin: 10px 0; }
+.progress-bar div { background: linear-gradient(135deg, #43e97b, #38f9d7); height: 100%; width: 0%; transition: width 0.5s; animation: progressFlow 2s infinite; }
+@keyframes progressFlow { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+#admin-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 20px; }
+.admin-section { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 15px; border-radius: 15px; }
+.admin-section h3 { color: #667eea; margin-bottom: 10px; }
+.admin-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 10px 15px; border-radius: 8px; margin: 5px; cursor: pointer; font-size: 0.9em; }
+.admin-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.admin-section input { width: 100%; padding: 8px; margin: 5px 0; border: 2px solid #667eea; border-radius: 8px; }
+.setting-group { background: rgba(0, 0, 0, 0.05); padding: 12px; border-radius: 10px; margin-bottom: 10px; animation: settingFade 0.5s; }
+@keyframes settingFade { from { opacity: 0; } to { opacity: 1; } }
+.setting-group h3 { color: #667eea; margin-bottom: 10px; }
+.setting-group label { display: block; margin: 6px 0; }
+.setting-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 8px 14px; border-radius: 8px; margin: 4px; cursor: pointer; transition: all 0.3s; }
+.setting-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.setting-btn.danger { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
+#stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+.stat-item { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; animation: statPop 0.5s; }
+@keyframes statPop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+.stat-label { font-weight: bold; color: #667eea; }
+.stat-value { color: #764ba2; font-weight: bold; }
+#toast-container { position: fixed; bottom: 12px; right: 12px; z-index: 2000; pointer-events: none; }
+.toast { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 10px 16px; border-radius: 10px; margin: 6px 0; animation: toastSlide 0.3s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); max-width: 280px; word-wrap: break-word; font-size: 0.85em; }
+@keyframes toastSlide { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+#particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+.particle { position: absolute; border-radius: 50%; pointer-events: none; animation: particleFloat 2s; }
+@keyframes particleFloat { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-100px) scale(0); } }
+#game-footer { text-align: center; margin-top: 12px; padding: 10px; color: white; font-size: 0.8em; animation: footerFade 1s; }
+@keyframes footerFade { from { opacity: 0; } to { opacity: 1; } }
+.dark-mode { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.dark-mode .tab-content, .dark-mode #game-header { background: rgba(30, 30, 50, 0.95); color: white; }
